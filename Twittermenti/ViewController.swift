@@ -48,8 +48,6 @@ class ViewController: UIViewController {
     var swifter = Swifter(consumerKey: "dummy key", consumerSecret: "dummy Secret")
     
     //------------------------
-
-    //let swifter = Swifter(consumerKey: "QQUM1jrh1qgDnjqg51eMogXMl", consumerSecret: "cPXoQsCyxfwmyjS1y59lmpWTLscfnkLMzeNO0wRBmzHrIf2Xl7")
     
     override func viewDidLoad() {
          
@@ -60,7 +58,7 @@ class ViewController: UIViewController {
         
 
         
-        swifter.searchTweet(using: "@Apple", success: { (results, metadata) in
+        swifter.searchTweet(using: "@Apple", lang: "en", count: 100, success: { (results, metadata) in
             
             print(results)
         
