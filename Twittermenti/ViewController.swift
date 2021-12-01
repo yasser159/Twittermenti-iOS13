@@ -8,6 +8,7 @@
 
 import UIKit
 import SwifteriOS
+import CoreML
 
 class ViewController: UIViewController {
     
@@ -15,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var sentimentLabel: UILabel!
     
+    let sentimentClassifier = TweetSentimentModelMaker()
     
     //-----------------------
     private var apiKey: String {
@@ -48,7 +50,7 @@ class ViewController: UIViewController {
     var swifter = Swifter(consumerKey: "dummy key", consumerSecret: "dummy Secret")
     
     //------------------------
-    // nothing to see here
+    // nothing to see here updated
     
     override func viewDidLoad() {
          
@@ -59,13 +61,18 @@ class ViewController: UIViewController {
         
 
         
-        swifter.searchTweet(using: "@Apple", lang: "en", count: 100, success: { (results, metadata) in
-            
+        swifter.searchTweet(using: "@Apple", lang: "en", count: 100,tweetMode: .extended, success: { (results, metadata) in
             print(results)
-        
         }) { (error) in
             print("There was an error with the Twitter API Request, \(error)")
         }
+        
+        
+        
+//        swifter.searchTweet(using: <#T##String#>, geocode: <#T##String?#>, lang: <#T##String?#>, locale: <#T##String?#>, resultType:
+//            <#T##String?#>, count: <#T##Int?#>, until: <#T##String?#>, sinceID: <#T##String?#>, maxID: <#T##String?#>, includeEntities: <#T##Bool?#>,
+//        callback: <#T##String?#>, tweetMode: <#T##TweetMode#>, success: <#T##Swifter.SearchResultHandler?##Swifter.SearchResultHandler?##(JSON, _ searchMetadata: JSON) -> Void#>, failure: <#T##Swifter.FailureHandler##Swifter.FailureHandler##(_ error: Error) -> Void#>)
+        
         
     }
 
