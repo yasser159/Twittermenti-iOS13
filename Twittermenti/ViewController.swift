@@ -10,6 +10,9 @@ import UIKit
 import SwifteriOS
 import CoreML
 import SwiftyJSON
+//import IQKeyboardManagerSwift
+
+
 
 class ViewController: UIViewController {
     
@@ -21,6 +24,11 @@ class ViewController: UIViewController {
     
     let sentimentClassifier = TweetSentimentModelMaker()
     
+    
+    //____________________________
+
+
+    //____________________________
     
     private var apiKey: String {
         get {
